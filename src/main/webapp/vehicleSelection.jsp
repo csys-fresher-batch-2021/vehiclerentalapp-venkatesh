@@ -1,7 +1,8 @@
 <%@ page import="java.util.HashMap"%>
 <%@ page import="java.util.Set"%>
 <%@ page import="in.venkatet.service.VehicleSelection"%>
-<html>
+<!DocType html>
+<html lang="en">
 <head>
 <title>MyApp</title>
 </head>
@@ -11,11 +12,12 @@
 		<h3>Vehicle Selection</h3>
 		<h2>cycle types</h2>
 		<table class="table table bordered">
+		<caption>Displaying vehicle type</caption>
 			<thead>
 				<tr>
-					<th>Sl.No</th>
-					<th>Cycle Type</th>
-					<th>Price Per Hour</th>
+					<th scope="col">Sl.No</th>
+					<th scope="col">Cycle Type</th>
+					<th scope="col">Price Per Hour</th>
 				</tr>
 			</thead>
 			<tbody>
