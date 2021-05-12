@@ -1,5 +1,5 @@
-<!DocType html>
-<html lang="en">
+
+<html>
 <head>
 <title>MyApp</title>
 </head>
