@@ -12,6 +12,7 @@
 		<h3>Vehicle Selection</h3>
 		<h2>bike types</h2>
 		<table class="table table bordered">
+		  <caption>table</caption>
 			<thead>
 				<tr>
 					<th scope="col">Sl.No</th>
