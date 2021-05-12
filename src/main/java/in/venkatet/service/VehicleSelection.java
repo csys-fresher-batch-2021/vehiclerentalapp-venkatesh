@@ -4,6 +4,7 @@
 package in.venkatet.service;
 
 import java.util.HashMap;
+import java.util.Map;
 import java.util.Set;
 
 /**
@@ -11,15 +12,19 @@ import java.util.Set;
  *
  */
 public class VehicleSelection {
-
-	private static HashMap<String, Integer> cyclePriceMap = new HashMap<String, Integer>();
+ 
+	
+	private VehicleSelection() {
+		
+	}
+	private static HashMap<String, Integer> cyclePriceMap = new HashMap<>();
 	static {
 		cyclePriceMap.put("cycle", 50);
 		cyclePriceMap.put("gear cycle", 100);
 		cyclePriceMap.put("electric cycle", 150);
 	}
 
-	public static HashMap<String, Integer> getVehicle() {
+	public static Map<String, Integer> getVehicle() {
 		return cyclePriceMap;
 	}
 
@@ -34,14 +39,14 @@ public class VehicleSelection {
 		}
 		}
 
-	private static HashMap<String, Integer> bikePriceMap = new HashMap<String, Integer>();
+	private static HashMap<String, Integer> bikePriceMap = new HashMap<>();
 	static {
 		bikePriceMap.put("scooter", 50);
 		bikePriceMap.put("gear bike", 100);
 		bikePriceMap.put("sport bike", 150);
 	}
 
-	public static HashMap<String, Integer> getVehicle1() {
+	public static Map<String, Integer> getVehicle1() {
 		return bikePriceMap;
 	}
 	public static void displayBikeType() {
@@ -54,7 +59,7 @@ public class VehicleSelection {
 		}
 	}
 
-	static HashMap<String, Integer> carPriceMap = new HashMap<String, Integer>();
+	static HashMap<String, Integer> carPriceMap = new HashMap<>();
 	static{
 		carPriceMap.put("without A/C", 500);
 		carPriceMap.put("with A/c", 1000);
