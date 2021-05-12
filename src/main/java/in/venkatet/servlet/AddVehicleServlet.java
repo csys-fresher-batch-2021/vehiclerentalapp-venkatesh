@@ -17,35 +17,36 @@ import in.venkatet.service.VehicleService;
 @WebServlet("/AddVehicleServlet")
 public class AddVehicleServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
-   
-	
-		protected void doPost(HttpServletRequest request, HttpServletResponse response)
-				throws ServletException, IOException {
-			PrintWriter out = response.getWriter();
-			System.out.println("AddVehicleServlet");
-			// Step 1: Get Form Values
-			String vehicleName = request.getParameter("vehicleName");
-			out.println(vehicleName);
-			int cost   = Integer.parseInt(request.getParameter("cost"));
-			out.println(cost);
-			boolean validCost = VehicleService.isValidNumber(cost);
-			// Step 2: Call Service => add Product
-			boolean isAdded = false;
-			if( validCost) {
-				isAdded = VehicleService.addProduct( vehicleName,cost);
-			}
-			
-			// Step 3: Decide to which page we should redirect ?
-			if (isAdded) {
-				response.sendRedirect("Display.jsp");
-			} else {
-				String errorMessage = "Unable to add vehicle ";
+
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+
+		PrintWriter out = response.getWriter();
+
+		String vehicleName = request.getParameter("vehicleName");
+		int cost = Integer.parseInt(request.getParameter("cost"));
+		boolean validCost = VehicleService.isValidNumber(cost);
+
+		boolean isAdded = false;
+		if (validCost) {
+			try {
+				isAdded = VehicleService.addProduct(vehicleName, cost);
+			} catch (Exception e) {
+				String errorMessage = "Invalid data ";
 				response.sendRedirect("addproduct.jsp?errorMessage=" + errorMessage);
 			}
+
 		}
+		if (isAdded) {
+			try {
+				response.sendRedirect("Display.jsp");
+			} catch (Exception e) {
+				String errorMessage = "Unable to add Books ";
+
+				response.sendRedirect("addproduct.jsp?errorMessage=" + errorMessage);
+			}
+
+		}
+
 	}
-
-	
-
-
+}

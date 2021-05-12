@@ -8,16 +8,7 @@ public class VehicleService {
 	
 	private static final Map<String, Integer> vehicles = new TreeMap<>();
 	static {
-		// List of products in the map
-//		products.put("cycle",50);
-//		products.put("gear cycle",100);
-//		products.put("electic cycle",150);
-//		products.put("scooter",150);
-//		products.put("gear bike",200);
-//		products.put("sport bike",300);
-//		products.put("with A/C",500);
-//		products.put("without A/C",700);
-//		products.put("SUV",1000);
+
 	
 	}
 	/**
@@ -30,7 +21,7 @@ public class VehicleService {
 		return vehicles;
 	}
 	public static boolean addProduct(String vehicleName,int cost) {
-		//TODO: call validation and check productName
+		
 		System.out.println("Successfully added ");
 		vehicles.put(vehicleName, cost);
 		return true;
@@ -45,22 +36,5 @@ public class VehicleService {
 		}
 		return valid;
 	}
-//	public static boolean deleteProduct(String productName) {
-//		//TODO: Implement the logic
-//		boolean isDeleted = false;
-//		String id = null;
-//		for(String key: products.keySet()) {
-//			Integer value = products.get(key);
-//			if(key.equalsIgnoreCase(productName)) {
-//				id = key;
-//				break;
-//			}
-//		}
-//		if(id != null) {
-//			products.remove(id);
-//			isDeleted = true;
-//		}
-//		return isDeleted;
-//	}
 
 }

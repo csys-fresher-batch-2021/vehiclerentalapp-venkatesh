@@ -1,9 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
-	<%@ page import="java.util.Map"%>
-	<%@ page import="in.venkatet.service.VehicleService"%>
+<%@ page import="java.util.Map"%>
+<%@ page import="in.venkatet.service.VehicleService"%>
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
 <meta charset="ISO-8859-1">
 <title>Insert title here</title>
@@ -17,18 +17,19 @@
 			<caption>display</caption>
 			<thead>
 				<tr>
-			<th scope ="col">sl.No</th>
-			
+					<th scope="col">sl.No</th>
+
 					<th scope="col">bike type</th>
 					<th scope="col">price</th>
 
 					<%
-				Map<String, Integer> bikes = VehicleService.getProducts();
-				int j = 0;
-				for (String bike : bikes.keySet()) {
-					int price = bikes.get(bike);
-					j++;
-				%>
+					Map<String, Integer> bikes = VehicleService.getProducts();
+					int j = 0;
+					for (String bike : bikes.keySet()) {
+						int price = bikes.get(bike);
+						j++;
+					%>
+				
 				<tr>
 					<td><%=j%></td>
 					<td><%=bike%></td>
@@ -37,10 +38,11 @@
 					<%
 					}
 					%>
+				
 			</thead>
 		</table>
 
-		<!--  TODO: Only Admin should be able to view this link -->
+
 		<a href="AddBikeDetails.jsp">Add bike type</a>
 	</main>
 </body>
