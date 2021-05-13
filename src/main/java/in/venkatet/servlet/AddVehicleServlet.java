@@ -17,10 +17,12 @@ public class AddVehicleServlet extends HttpServlet {
 			throws ServletException, IOException {
 	try {
 	   String vehicleName = request.getParameter("vehicleName");
-		int cost = Integer.parseInt(request.getParameter("cost"));
+	   boolean isValid= VehicleService.isVehicleNameValid( vehicleName);
+        String price = request.getParameter("cost");
+	    int cost = VehicleService.isParsable(price);
 		boolean validCost = VehicleService.isValidNumber(cost);
 		boolean isAdded = false;
-		if (validCost) {
+		if (isValid && validCost) {
 		   	isAdded = VehicleService.addVehicle(vehicleName, cost);
 			if (isAdded){
 			   response.sendRedirect("display.jsp");
@@ -38,18 +40,3 @@ public class AddVehicleServlet extends HttpServlet {
 	}
 		
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
