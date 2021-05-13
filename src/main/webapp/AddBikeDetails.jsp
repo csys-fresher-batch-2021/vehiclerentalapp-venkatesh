@@ -10,7 +10,7 @@
 
 	<jsp:include page="header.jsp"></jsp:include>
 	<main class="container-fluid">
-		<h3>Add cycle</h3>
+		<h3>Add vehicle</h3>
 
 		<form action="AddVehicleServlet" method="post">
 			<label for="vehicleName">Vehicle Name</label> <input type="text"

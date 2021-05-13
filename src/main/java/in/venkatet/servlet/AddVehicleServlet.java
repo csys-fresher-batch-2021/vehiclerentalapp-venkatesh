@@ -12,17 +12,16 @@ import javax.servlet.http.HttpServletResponse;
 import in.venkatet.service.VehicleService;
 
 /**
- * Servlet implementation class AddVehicleServlet
+ * servlet implementation class AddVehicleServlet
  */
 @WebServlet("/AddVehicleServlet")
 public class AddVehicleServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-
+@Override
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
-		PrintWriter out = response.getWriter();
-
+		
 		String vehicleName = request.getParameter("vehicleName");
 		int cost = Integer.parseInt(request.getParameter("cost"));
 		boolean validCost = VehicleService.isValidNumber(cost);

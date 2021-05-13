@@ -18,9 +18,11 @@
 			<thead>
 				<tr>
 					<th scope="col">sl.No</th>
-
 					<th scope="col">bike type</th>
 					<th scope="col">price</th>
+					<th scope="col">booking</th>
+					
+					
 
 					<%
 					Map<String, Integer> bikes = VehicleService.getProducts();
