@@ -16,11 +16,11 @@ public class VehicleService {
 	 * @return
 	 * 
 	 */
-	public static Map<String, Integer> getProducts() {
+	public static Map<String, Integer> getVehicles() {
 		return vehicles;
 	}
 
-	public static boolean addProduct(String vehicleName, int cost) {
+	public static boolean addVehicle(String vehicleName, int cost) {
 		vehicles.put(vehicleName, cost);
 		return true;
 	}

@@ -1,14 +1,11 @@
 package in.venkatet.servlet;
-
 import java.io.IOException;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
 import in.venkatet.service.VehicleService;
-
 /**
  * servlet implementation class AddVehicleServlet
  */
@@ -18,32 +15,41 @@ public class AddVehicleServlet extends HttpServlet {
 @Override
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-
-		
-		String vehicleName = request.getParameter("vehicleName");
+	try {
+	   String vehicleName = request.getParameter("vehicleName");
 		int cost = Integer.parseInt(request.getParameter("cost"));
 		boolean validCost = VehicleService.isValidNumber(cost);
-
 		boolean isAdded = false;
 		if (validCost) {
-			try {
-				isAdded = VehicleService.addProduct(vehicleName, cost);
-			} catch (Exception e) {
-				String errorMessage = "Invalid data ";
-				response.sendRedirect("addproduct.jsp?errorMessage=" + errorMessage);
+		   	isAdded = VehicleService.addVehicle(vehicleName, cost);
+			if (isAdded){
+			   response.sendRedirect("display.jsp");
 			}
-
-		}
-		if (isAdded) {
-			try {
-				response.sendRedirect("Display.jsp");
-			} catch (Exception e) {
-				String errorMessage = "Unable to add Books ";
-
-				response.sendRedirect("addproduct.jsp?errorMessage=" + errorMessage);
+			else{
+			 	String errorMessage = "Unable to add vehicle ";
+				response.sendRedirect("addVehicleDetails.jsp?errorMessage=" + errorMessage);
 			}
-
+			
 		}
-
+		}catch (Exception e) {
+             String errorMessage = e.getMessage();
+			response.sendRedirect("addVehicleDetails.jsp?errorMessage=" + errorMessage);
+		}
 	}
+		
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -18,25 +18,21 @@
 			<thead>
 				<tr>
 					<th scope="col">sl.No</th>
-					<th scope="col">bike type</th>
+					<th scope="col">vehicle type</th>
 					<th scope="col">price</th>
 
-
-
-
 					<%
-					Map<String, Integer> bikes = VehicleService.getProducts();
+					Map<String, Integer> vehicles = VehicleService.getVehicles();
 					int j = 0;
-					for (String bike : bikes.keySet()) {
-						int price = bikes.get(bike);
+					for (String vehicle : vehicles.keySet()) {
+						int price = vehicles.get(vehicle);
 						j++;
 					%>
 				
 				<tr>
 					<td><%=j%></td>
-					<td><%=bike%></td>
+					<td><%=vehicle%></td>
 					<td><%=price%></td>
-
 					<%
 					}
 					%>
@@ -45,7 +41,7 @@
 		</table>
 
 
-		<a href="AddBikeDetails.jsp">Add bike type</a>
+		<a href="addVehicleDetails.jsp">Add bike type</a>
 	</main>
 </body>
 </html>
