@@ -1,11 +1,6 @@
-/**
- * 
- */
 package in.venkatet.DAO;
-
 import java.util.ArrayList;
 import java.util.List;
-
 import in.venkatet.model.User;
 
 /**
@@ -18,6 +13,6 @@ public class UserDao {
 
 	public void addUser(User users) {
 		userRegistration.add(users);
-		
+
 	}
 }
