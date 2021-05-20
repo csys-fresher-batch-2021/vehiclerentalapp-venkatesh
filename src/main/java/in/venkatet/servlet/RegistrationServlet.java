@@ -16,11 +16,10 @@ import in.venkatet.service.UserService;
 @WebServlet("/RegistrationServlet")
 public class RegistrationServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-
+	@Override
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		response.getWriter().append("Served at: ").append(request.getContextPath());
-		try {
+	
 
 			String username = request.getParameter("name");
 			String email = request.getParameter("email");
@@ -36,10 +35,10 @@ public class RegistrationServlet extends HttpServlet {
 
 			boolean isAdded = service.addDetails(username, mobileNum, email, address, age, password, ConfrimPassword);
 			if (isAdded) {
-				response.sendRedirect("display.jsp");
+				response.sendRedirect("userLogin.jsp");
 		
 			}
-		} catch (Exception e) {
+		 else {
 			String errorMessage = "Invalid user details ";
 			response.sendRedirect("userRegistration.jsp?errorMessage=" + errorMessage);
 		}

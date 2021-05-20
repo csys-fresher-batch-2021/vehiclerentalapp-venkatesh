@@ -24,14 +24,9 @@ public class UserService {
 			if (password.equals(confrimPassword)) {
 				userObject.addUser(userObj);
 				registered = true;
-			} else {
-				System.out.println("Invalid confrim password");
-			}
+			} 
 
-		} else {
-			System.out.println("Invalid details");
-			registered = false;
-		}
+		} 
 		return registered;
 
 	}

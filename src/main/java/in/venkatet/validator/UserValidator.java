@@ -1,6 +1,3 @@
-/**
- * 
- */
 package in.venkatet.validator;
 
 /**
@@ -20,6 +17,7 @@ public class UserValidator {
 		}
 		return valid;
 	}
+
 	/**
 	 * 
 	 * @param email
@@ -28,17 +26,15 @@ public class UserValidator {
 
 	public boolean isEmailValid(String email) {
 		boolean valid = false;
-		String regex ="^[a-zA-Z0-9_+&*-]+(?:\\."+ "[a-zA-Z0-9_+&*-]+)*@" +
-				  "(?:[a-zA-Z0-9-]+\\.)+[a-z" + "A-Z]{2,7}$";
+		String regex = "^[a-zA-Z0-9_+&*-]+(?:\\.+[a-zA-Z0-9_+&*-]+)*@" + "(?:[a-zA-Z0-9-]+\\.)+[a-zA-Z]{2,7}$";
 		if (email.matches(regex)) {
 			valid = true;
-		} else {
-			valid = false;
-			System.out.println("inali emaild");
+
 		}
 
 		return valid;
 	}
+
 	/**
 	 * 
 	 * @param mobileNumber
@@ -50,13 +46,12 @@ public class UserValidator {
 		String number = String.valueOf(mobileNumber);
 		if (number.length() == 10) {
 			valid = true;
-		} else {
-			valid = false;
-			System.out.println("inalid num");
+
 		}
 
 		return valid;
 	}
+
 	/**
 	 * 
 	 * @param address
@@ -65,16 +60,14 @@ public class UserValidator {
 
 	public boolean isAddressValid(String address) {
 		boolean valid = false;
-		String regex =  "[a-zA-Z0-9]+\\.?";
+		String regex = "[a-zA-Z0-9]+\\.?";
 		if (address.matches(regex)) {
 			valid = true;
-		} else {
-			valid = false;
-			System.out.println("inalid address");
 		}
 
 		return valid;
 	}
+
 	/**
 	 * 
 	 * @param age
@@ -85,12 +78,10 @@ public class UserValidator {
 		boolean valid = false;
 		if (age > 18) {
 			valid = true;
-		} else {
-			valid = false;
 		}
-
 		return valid;
 	}
+
 	/**
 	 * 
 	 * @param password
@@ -102,9 +93,6 @@ public class UserValidator {
 		String regex = "^(?=.*[0-9])" + "(?=.*[a-z])(?=.*[A-Z])" + "(?=.*[@#$%^&+=])" + "(?=\\S+$).{8,20}$";
 		if (password != null && password.matches(regex)) {
 			valid = true;
-		} else {
-			valid = false;
-			System.out.println("inalid psss");
 		}
 
 		return valid;

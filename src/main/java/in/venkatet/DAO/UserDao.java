@@ -1,4 +1,4 @@
-package in.venkatet.DAO;
+package in.venkatet.Dao;
 import java.util.ArrayList;
 import java.util.List;
 import in.venkatet.model.User;
@@ -9,7 +9,7 @@ import in.venkatet.model.User;
  */
 public class UserDao {
 
-	private final List<User> userRegistration = new ArrayList<User>();
+	private final List<User> userRegistration = new ArrayList<>();
 
 	public void addUser(User users) {
 		userRegistration.add(users);
