@@ -1,4 +1,4 @@
-package in.venkatet.Dao;
+package in.venkatet.DAO;
 import java.util.ArrayList;
 import java.util.List;
 import in.venkatet.model.User;
