@@ -1,76 +1,35 @@
 package in.venkatet.service;
 
-import java.util.Map;
-import java.util.TreeMap;
+import in.venkatet.DAO.VehicleDao;
+import in.venkatet.validator.VehicleValidator;
 
 public class VehicleService {
-	private VehicleService() {
+	private static VehicleValidator validator = new VehicleValidator();
+
+	public VehicleService() {
 		/**
 		 * constructor
 		 */
 	}
 
-	private static final Map<String, Integer> vehicles = new TreeMap<>();
-
-	/**
-	 * method to display the products available
-	 * 
-	 * @return
-	 * 
-	 */
-	public static Map<String, Integer> getVehicles() {
-		return vehicles;
-	}
-
-	public static boolean addVehicle(String vehicleName, int cost) {
-		vehicles.put(vehicleName, cost);
-		return true;
-	}
-
-	public static boolean isValidNumber(int number) {
-		boolean valid = false;
-		if (number > 0) {
-			valid = true;
-		} else {
-			valid = false;
+	public static boolean addVehicle(String vehicleName, double cost) {
+		boolean added = false;
+		boolean isVehicleNameValid = validator.isVehicleNameValid(vehicleName);
+		boolean isCostValid = validator.isValidNumber(cost);
+		if (isVehicleNameValid && isCostValid) {
+			VehicleDao.addVehicle(vehicleName, cost);
+			added = true;
 		}
-		return valid;
+		return added;
 	}
 
-	public static int isParsable(String price) {
-		int res = 0;
-		try {
-			res = Integer.parseInt(price);
-		} catch (final NumberFormatException e) {
-			res = 0;
-		}
-		return res;
-	}
-
-	public static boolean isVehicleNameValid(String vehicleName) {
-		boolean valid = false;
-		String regex = "[a-zA-Z]+\\.?";
-		if (vehicleName.matches(regex)) {
-
-			valid = true;
-		} else {
-			valid = false;
-		}
-		return valid;
-	}
-	
 	public static boolean deleteVehicle(String vehicleName) {
-		//TODO: Implement the logic
-		boolean isDeleted = false;
-		if(vehicles.containsKey(vehicleName)) {
-			vehicles.remove(vehicleName);
-			isDeleted = true;			
-		}
-		else {
-			isDeleted=false;
-		}
 
-		
+		boolean isDeleted = false;
+		if (VehicleDao.getVehicles().containsKey(vehicleName)) {
+			VehicleDao.getVehicles().remove(vehicleName);
+			isDeleted = true;
+		}
 		return isDeleted;
 	}
 }

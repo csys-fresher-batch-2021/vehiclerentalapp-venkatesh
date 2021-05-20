@@ -5,7 +5,7 @@
 
 
 <%
-String loggedInUsername = (String)session.getAttribute("LOGGED_IN_USER");
+String loggedInUsername = (String) session.getAttribute("LOGGED_IN_USER");
 String role = (String) session.getAttribute("ROLE");
 %>
 
@@ -35,9 +35,9 @@ String role = (String) session.getAttribute("ROLE");
 			</ul>
 			<ul class="navbar-nav ml-auto mt-2 mt-lg-0">
 				<li class="nav-item active"><a class="nav-link"
-					href="adminLogin.jsp">Login</a></li>
-				<li class="nav-item"><a class="nav-link" href="#">Register</a>
-				</li>
+					href="adminLogin.jsp">Admin Login</a></li>
+				<li class="nav-item"><a class="nav-link"
+					href="userLoginView.jsp">rent vehicle</a></li>
 			</ul>
 
 		</div>

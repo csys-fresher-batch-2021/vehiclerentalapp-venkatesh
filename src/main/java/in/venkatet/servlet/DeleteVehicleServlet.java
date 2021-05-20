@@ -15,15 +15,15 @@ import in.venkatet.service.VehicleService;
 @WebServlet("/DeleteVehicleServlet")
 public class DeleteVehicleServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
- 
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
+	@Override
+	protected void doGet(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
 		String vehicleName = request.getParameter("vehicleName");
 		boolean isDeleted = VehicleService.deleteVehicle(vehicleName);
-		if(isDeleted) {
+		if (isDeleted) {
 			response.sendRedirect("display.jsp");
-		}
-		else {
+		} else {
 			String errorMessage = "Unable to delete vehicle";
 			response.sendRedirect("addVehicleDetails.jsp?errorMessage=" + errorMessage);
 		}
