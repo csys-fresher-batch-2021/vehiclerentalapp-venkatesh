@@ -58,19 +58,16 @@ public class VehicleService {
 		}
 		return valid;
 	}
-	
+
 	public static boolean deleteVehicle(String vehicleName) {
-		//TODO: Implement the logic
 		boolean isDeleted = false;
-		if(vehicles.containsKey(vehicleName)) {
+		if (vehicles.containsKey(vehicleName)) {
 			vehicles.remove(vehicleName);
-			isDeleted = true;			
-		}
-		else {
-			isDeleted=false;
+			isDeleted = true;
+		} else {
+			isDeleted = false;
 		}
 
-		
 		return isDeleted;
 	}
 }
