@@ -16,6 +16,7 @@ import in.venkatet.service.VehicleService;
 public class DeleteVehicleDetailServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
+	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		String vehicleName = request.getParameter("vehicleName");

@@ -11,41 +11,40 @@
 <body>
 	<jsp:include page="header.jsp"></jsp:include>
 	<main class="container-fluid">
-	<form action="userLogin.jsp" method ="post">
-		<h3>vehicle</h3>
+		<form action="userLogin.jsp" method="post">
+			<h3>vehicle</h3>
 
-		<table class="table table-bordered">
-			<caption>display</caption>
-			<thead>
-				<tr>
-					<th scope="col">sl.No</th>
-					<th scope="col">vehicle type</th>
-					<th scope="col">price</th>
-					<th scope="col">update</th>
+			<table class="table table-bordered">
+				<caption>display</caption>
+				<thead>
+					<tr>
+						<th scope="col">sl.No</th>
+						<th scope="col">vehicle type</th>
+						<th scope="col">price</th>
+						<th scope="col">update</th>
 
-					<%
-					Map<String, Integer> vehicles = VehicleService.getVehicles();
-					int j = 0;
-					for (String vehicle : vehicles.keySet()) {
-						int price = vehicles.get(vehicle);
-						j++;
-					%>
-				
-				<tr>
-					<td><%=j%></td>
-					<td><%=vehicle%></td>
-					<td><%=price%></td>
-					<td><a href="DeleteVehicleDetailServlet?vehicleName=<%=vehicle%>" class="btn btn-danger">Delete</a>
-					<%
-					}
-					%>
-				
-			</thead>
-		</table>
+						<%
+						Map<String, Integer> vehicles = VehicleService.getVehicles();
+						int j = 0;
+						for (String vehicle : vehicles.keySet()) {
+							int price = vehicles.get(vehicle);
+							j++;
+						%>
+					
+					<tr>
+						<td><%=j%></td>
+						<td><%=vehicle%></td>
+						<td><%=price%></td>
+						<td><a
+							href="DeleteVehicleDetailServlet?vehicleName=<%=vehicle%>"
+							class="btn btn-danger">Delete</a> <%
+ }
+ %>
+				</thead>
+			</table>
 
-	<button type ="submit">BOOK</button>
-	</form>
-	<!-- 	<a href="addVehicleDetails.jsp">Add bike type</a> -->
+			<button type="submit">BOOK</button>
+		</form>
 	</main>
 </body>
 </html>
