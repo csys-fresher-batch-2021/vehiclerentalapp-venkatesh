@@ -35,7 +35,7 @@
 					<td><%=j%></td>
 					<td><%=vehicle%></td>
 					<td><%=price%></td>
-					<td><a href="DeleteVehicleServlet?vehicleName=<%=vehicle%>" class="btn btn-danger">Delete</a>
+					<td><a href="DeleteVehicleDetailServlet?vehicleName=<%=vehicle%>" class="btn btn-danger">Delete</a>
 					<%
 					}
 					%>
