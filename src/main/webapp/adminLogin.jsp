@@ -11,7 +11,7 @@
 	<table>
 		<caption>ADMIN LOGIN</caption>
 		<tr>
-			<th scope="col">USER NAME</th>
+			<th scope="col">ADMIN NAME</th>
 			<td><input type="text" name="userName"
 				placeholder="Enter user name" id="userId" required autofocus></td>
 		</tr>
