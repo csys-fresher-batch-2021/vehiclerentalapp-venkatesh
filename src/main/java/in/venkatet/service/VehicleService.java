@@ -31,11 +31,11 @@ public class VehicleService {
 	}
 
 	public static boolean isPresent(String vehicleName) {
-		boolean present = false;
+		boolean ispresent = false;
 		if (vehicles.containsKey(vehicleName)) {
-			present = true;
+			ispresent = true;
 		}
-		return present;
+		return ispresent;
 
 	}
 
