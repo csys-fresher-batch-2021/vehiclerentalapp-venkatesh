@@ -3,6 +3,8 @@ package in.venkatet.service;
 import java.util.Map;
 import java.util.TreeMap;
 
+import in.venkatet.dao.BookVehicleDao;
+
 public class VehicleService {
 	private VehicleService() {
 		/**
@@ -10,7 +12,7 @@ public class VehicleService {
 		 */
 	}
 
-	private static final Map<String, Integer> vehicles = new TreeMap<>();
+	private static final Map<String, Double> vehicles = new TreeMap<>();
 
 	/**
 	 * method to display the products available
@@ -18,45 +20,23 @@ public class VehicleService {
 	 * @return
 	 * 
 	 */
-	public static Map<String, Integer> getVehicles() {
+	public static Map<String, Double> getVehicles() {
 		return vehicles;
 	}
 
-	public static boolean addVehicle(String vehicleName, int cost) {
+	public static boolean addVehicle(String vehicleName, double cost) {
 		vehicles.put(vehicleName, cost);
 		return true;
+
 	}
 
-	public static boolean isValidNumber(int number) {
-		boolean valid = false;
-		if (number > 0) {
-			valid = true;
-		} else {
-			valid = false;
+	public static boolean isPresent(String vehicleName) {
+		boolean present = false;
+		if (vehicles.containsKey(vehicleName)) {
+			present = true;
 		}
-		return valid;
-	}
+		return present;
 
-	public static int isParsable(String price) {
-		int res = 0;
-		try {
-			res = Integer.parseInt(price);
-		} catch (final NumberFormatException e) {
-			res = 0;
-		}
-		return res;
-	}
-
-	public static boolean isVehicleNameValid(String vehicleName) {
-		boolean valid = false;
-		String regex = "[a-zA-Z]+\\.?";
-		if (vehicleName.matches(regex)) {
-
-			valid = true;
-		} else {
-			valid = false;
-		}
-		return valid;
 	}
 
 	public static boolean deleteVehicle(String vehicleName) {
@@ -70,4 +50,17 @@ public class VehicleService {
 
 		return isDeleted;
 	}
+
+	public static boolean vehicleReserved(String vehicleName, String hour, String bookingDate, String bookingTime) {
+		boolean isPresent = BookVehicleService.isPresent(vehicleName);
+		boolean isAdd = false;
+		if (isPresent) {
+			int rentalHour = Integer.parseInt(hour);
+			double cost = BookVehicleService.cost(vehicleName);
+			BookVehicleDao.addBookVehicle(vehicleName, cost, rentalHour, bookingDate, bookingTime);
+		}
+
+		return isAdd;
+	}
+
 }
