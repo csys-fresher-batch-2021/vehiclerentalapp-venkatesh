@@ -11,12 +11,16 @@ import java.util.TreeMap;
  *
  */
 public class VehicleDao {
+	private VehicleDao() {
+		/*
+		 * adding private constructor
+		 */
+	}
 
-	private static final Map<String, Double> vehicles = new TreeMap<>();
-	
+	private static Map<String, Double> vehicles = new TreeMap<>();
 
 	public static void addVehicle(String name, double amount) {
-		vehicles.put(name,amount);
+		vehicles.put(name, amount);
 
 	}
 
