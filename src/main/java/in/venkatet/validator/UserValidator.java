@@ -10,7 +10,6 @@ public class UserValidator {
 			valid = true;
 		} else {
 			valid = false;
-			System.out.println("inalid");
 		}
 		return valid;
 	}

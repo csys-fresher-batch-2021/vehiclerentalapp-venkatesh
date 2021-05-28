@@ -5,6 +5,12 @@ package in.venkatet.validator;
  *
  */
 public class VehicleValidator {
+	private VehicleValidator() {
+		/*
+		 * adding a private contructor
+		 */
+	}
+
 	public static boolean isValidNumber(double number) {
 		boolean valid = false;
 		if (number > 0) {
@@ -14,7 +20,6 @@ public class VehicleValidator {
 		}
 		return valid;
 	}
-
 
 	public static boolean isVehicleNameValid(String vehicleName) {
 		boolean valid = false;
@@ -27,6 +32,5 @@ public class VehicleValidator {
 		}
 		return valid;
 	}
-	
 
 }

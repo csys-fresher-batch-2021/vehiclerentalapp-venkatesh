@@ -21,29 +21,27 @@ public class UserService {
 		boolean addressValid = userValidator.isAddressValid(address);
 		boolean ageValid = userValidator.isAgeValid(age);
 		boolean passwordValid = userValidator.isPasswordValid(password);
-		if (nameValid && mobileValid && emailValid && addressValid && ageValid && passwordValid) {
-			if (password.equals(confrimPassword)) {
-				userObject.addUser(userObj);
-				registered = true;
-			}
-			
+		if (nameValid && mobileValid && emailValid && addressValid && ageValid && passwordValid
+				&& password.equals(confrimPassword)) {
 
+			userObject.addUser(userObj);
+			registered = true;
 		}
+
 		return registered;
 
 	}
 
 	public boolean checkUser(String userName, String userPasscode) {
 		boolean isValidUser = false;
-	   	 List<UserDetails> users = UserDao.getUser();
-			for (UserDetails userDetails : users) {
-				if(userDetails.getUserName().equals(userName) && userDetails.getPassword().equals(userPasscode)) {
-					isValidUser = true;
-				}
-				
+		List<UserDetails> users = UserDao.getUser();
+		for (UserDetails userDetails : users) {
+			if (userDetails.getUserName().equals(userName) && userDetails.getPassword().equals(userPasscode)) {
+				isValidUser = true;
 			}
-	   	 return isValidUser;
-	}
 
+		}
+		return isValidUser;
+	}
 
 }

@@ -4,6 +4,11 @@ import java.util.Map;
 import java.util.TreeMap;
 
 public class BookVehicleService {
+	private BookVehicleService() {
+		/*
+		 * adding a private constructor
+		 */
+	}
 
 	private static final Map<String, Double> bookVehicles = new TreeMap<>();
 
@@ -46,14 +51,14 @@ public class BookVehicleService {
 
 	public static double cost(String vehicleName) {
 		double cost = 0;
-		
+
 		for (String vehicle : bookVehicles.keySet()) {
 			if (vehicleName.equalsIgnoreCase(vehicle)) {
 				cost = bookVehicles.get(vehicleName);
 
 			}
 		}
-		System.out.println(bookVehicles);
+	
 		return cost;
 
 	}
